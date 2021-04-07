@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<request>
+	<!-- 단지 사업자정보 등록 -->
+	<business MESSAGECODE="9999" SERVICECODE="001">
+		<field name="GRPBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="단지사업자번호" 		default="" />
+		<field name="GRPNM"				required="true"		maxBytes="100"	encrypt="false"	title="단지사업자명"		default="" />
+	</business>
+
+	<!-- 상사 사업자정보 등록 -->
+	<business MESSAGECODE="9999" SERVICECODE="002">
+		<field name="GRPBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="단지사업자번호" 		default="" />
+		<field name="MEMBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="상사사업자번호"		default="" />
+		<field name="MEMNM"				required="true"		maxBytes="100"	encrypt="false"	title="상사사업자명"		default="" />
+		<field name="CHANNEL"			required="false"	maxBytes="30"	encrypt="false"	title="전용선 업체코드"		default="KSNET" />
+		<field name="BANKCD"			required="false"	maxBytes="3"	encrypt="false"	title="은행코드"			default="004" />
+		<field name="FBSCODE"			required="true"		maxBytes="8"	encrypt="false"	title="FBS업체코드"		default="" />
+		<field name="RECCODEYN"			required="false"	maxBytes="1"	encrypt="false"	title="복기부호 사용여부"	default="N" />
+	</business>
+	
+	<!-- 상사 사업자정보 수정 -->
+	<business MESSAGECODE="9999" SERVICECODE="012">
+		<field name="GRPBIZNO"			required="true"		maxBytes="14"	encrypt="false"	title="단지사업자번호" 		default="" />
+		<field name="MEMBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="상사사업자번호"		default="" />
+		<field name="MEMNM"				required="true"		maxBytes="100"	encrypt="false"	title="상사사업자명"		default="" />
+		<field name="CHANNEL"			required="false"	maxBytes="30"	encrypt="false"	title="전용선 업체코드"		default="KSNET" />
+		<field name="BANKCD"			required="false"	maxBytes="3"	encrypt="false"	title="은행코드"			default="004" />
+		<field name="FBSCODE"			required="false"	maxBytes="8"	encrypt="false"	title="FBS업체코드"		default="" />
+		<field name="RECCODEYN"			required="false"	maxBytes="1"	encrypt="false"	title="복기부호 사용여부"	default="N" />
+	</business>
+	
+	<!-- 상사 사업자정보 삭제 -->
+	<business MESSAGECODE="9999" SERVICECODE="022">
+		<field name="GRPBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="단지사업자번호" 		default="" />
+		<field name="MEMBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="상사사업자번호"		default="" />
+	</business>
+	
+	<!-- 상사 사업자정보 조회 -->
+	<business MESSAGECODE="9999" SERVICECODE="032">
+		<field name="GRPBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="단지사업자번호" 		default="" />
+		<field name="MEMBIZNO"			required="false"	maxBytes="13"	encrypt="false"	title="상사사업자번호"		default="" />
+		<field name="MEMNM"				required="false"	maxBytes="100"	encrypt="false"	title="상사사업자명"		default="" />
+		<field name="CURRPAGENO"		required="false"	maxBytes="10"	encrypt="false"	title="요청페이지"			default="1" />
+	</business>
+
+	<!-- 잔액조회 -->
+	<business MESSAGECODE="0600" SERVICECODE="300">
+		<field name="GRPBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="단지사업자번호" 		default="" />
+		<field name="MEMBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="상사사업자번호"		default="" />
+		<field name="ISSUENO"			required="true"		maxBytes="20"	encrypt="false"	title="거래고유번호"		default="" />
+		<field name="BANKCD"			required="false"	maxBytes="3"	encrypt="false"	title="조회대상은행코드"		default="004" />
+		<field name="ACCTNO"			required="true"		maxBytes="15"	encrypt="false"	title="조회대상계좌번호"		default="" />
+	</business>
+	
+	<!-- 예금주명조회 -->
+	<business MESSAGECODE="0600" SERVICECODE="400">
+		<field name="GRPBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="단지사업자번호" 		default="" />
+		<field name="MEMBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="상사사업자번호"		default="" />
+		<field name="ISSUENO"			required="true"		maxBytes="20"	encrypt="false"	title="거래고유번호"		default="" />
+		<field name="TRXDAT"			required="true"		maxBytes="4"	encrypt="false"	title="거래일자(MMDD)"		default="" />
+		<field name="BANKCD"			required="true"		maxBytes="3"	encrypt="false"	title="조회대상은행코드"		default="" />
+		<field name="ACCTNO"			required="true"		maxBytes="16"	encrypt="false"	title="조회대상계좌번호"		default="" />
+		<field name="TRXAMT"			required="false"	maxBytes="13"	encrypt="false"	title="거래금액"			default="" />
+	</business>
+	
+	<!-- 거래내역조회 -->
+	<business MESSAGECODE="0200" SERVICECODE="300">
+		<field name="GRPBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="단지사업자번호" 		default="" />
+		<field name="MEMBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="상사사업자번호"		default="" />
+		<field name="ISSUENO"			required="true"		maxBytes="20"	encrypt="false"	title="거래고유번호"		default="" />
+		<field name="BANKCD"			required="false"	maxBytes="3"	encrypt="false"	title="조회대상은행코드"		default="004" />
+		<field name="CURRCD"			required="false"	maxBytes="3"	encrypt="false"	title="조회통화코드"		default="KRW" />
+		<field name="ACCTNO"			required="false"	maxBytes="15"	encrypt="false"	title="조회계좌번호"		default="" />
+		<field name="SDATE"				required="true"		maxBytes="8"	encrypt="false"	title="조회시작일자"		default="" />
+		<field name="EDATE"				required="true"		maxBytes="8"	encrypt="false"	title="조회종료일자"		default="" />
+		<field name="CURRPAGENO"		required="false"	maxBytes="5"	encrypt="false"	title="요청페이지"			default="1" />
+	</business>
+	
+	<!-- 지급 이체 요청 -->
+	<business MESSAGECODE="0100" SERVICECODE="100">
+		<field name="GRPBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="단지사업자번호" 		default="" />
+		<field name="MEMBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="상사사업자번호"		default="" />
+		<field name="ISSUENO"			required="true"		maxBytes="20"	encrypt="false"	title="거래고유번호"		default="" />
+		<field name="OUTBANKCD"			required="false"	maxBytes="3"	encrypt="false"	title="출금은행코드"		default="004" />
+		<field name="OUTACCTNO"			required="true"		maxBytes="15"	encrypt="false"	title="출금계좌번호"		default="" />
+		<field name="OUTACCTPW"			required="false"	maxBytes="8"	encrypt="false"	title="출금계좌비밀번호"		default="" />
+		<field name="OUTAMT"			required="true"		maxBytes="13"	encrypt="false"	title="출금금액"			default="" />
+		<field name="OUTDESC"			required="false"	maxBytes="20"	encrypt="false"	title="출금계좌적요"		default="" />
+		<field name="INBANKCD"			required="true"		maxBytes="3"	encrypt="false"	title="입금은행코드"		default="" />
+		<field name="INACCTNO"			required="true"		maxBytes="15"	encrypt="false"	title="입금계좌번호"		default="" />
+		<field name="INDESC"			required="true"		maxBytes="20"	encrypt="false"	title="입금계좌적요"		default="" />
+		<field name="CMSCD"				required="false"	maxBytes="16"	encrypt="false"	title="CMS코드"			default="" />
+		<field name="SALARYYN"			required="false"	maxBytes="1"	encrypt="false"	title="급여구분"			default="" />
+	</business>
+	
+	<!-- 지급 이체 결과 조회 -->
+	<business MESSAGECODE="0600" SERVICECODE="101">
+		<field name="GRPBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="단지사업자번호" 			default="" />
+		<field name="MEMBIZNO"			required="true"		maxBytes="13"	encrypt="false"	title="상사사업자번호"			default="" />
+		<field name="ISSUENO"			required="true"		maxBytes="20"	encrypt="false"	title="이체요청거래고유번호"		default="" />
+	</business>
+</request>

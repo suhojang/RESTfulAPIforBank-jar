@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+	<!-- 지급 이체 요청 -->
+	<business MESSAGECODE="0100" SERVICECODE="100">
+		<field name="OUTACCTPW"			required="false"		encrypt="false"	title="출금계좌비밀번호"		default="" />
+	</business>
+</response>
